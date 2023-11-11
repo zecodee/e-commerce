@@ -1,0 +1,268 @@
+:root {
+    --main-color: #434750 ; 
+    --txt-color: #434750;   
+    --bg-color: #b7aea5;    
+    --hover-main: #2a2c32;
+}
+
+@media (max-width: 1080px) {
+    .container{
+        margin: 0 auto;
+        width: 90%;
+    }
+    .popup{
+        height: 40%;
+    }
+
+    .popup1{
+        height: 40%;
+    }
+
+    .home {
+        margin-top: 120px;
+    }
+
+    .section-title{
+        margin-top: 8%;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .slider{
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .slider .list img{
+        width: auto;
+        max-width: 100vw;
+        height: auto;
+        object-fit: cover;
+        position: relative;
+    }
+
+    .section-title{
+        margin-top: 8%;
+    }
+
+    .menu-preview .preview{
+        width: 50%;
+    }
+
+    .menu-preview .preview h3{
+        font-size: 1.6rem;
+    }
+
+    .menu-preview .preview .p1{
+        font-size: 1rem;
+    }
+    
+    .menu-preview .preview .p2{
+        font-size: 1rem;
+    }
+
+    .prices{
+        font-weight: 600;
+        font-size: 1.3rem;
+        background: #c6bdb5;
+        padding: 0 15px 0 15px;
+        border-radius: 6px;
+        margin: 0 1rem 0;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .slider{
+        height: 400px;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 10%;
+        right: -100%;
+        width: 360px;
+        height: 100%;
+        padding: 5rem 4%;
+        background: var(--bg-color);
+        border-bottom: 2px solid;
+    }
+
+    #menu-icon {
+        display: block;
+        margin-left: auto;
+    }
+
+    .navbar.active {
+        display: block;
+        top: 10%;
+        right: 0;
+        transition: 0.6s ease-in-out;
+    }
+
+    .navbar a {
+        display: block;
+        margin: 1.5rem;
+        text-align: center;
+        height: 10vh;
+    }
+
+    .menu {
+        margin-top: 35%;
+    }
+
+    .slider .buttons{
+        height: 80%;
+    }
+
+    .section-title{
+        margin-top: 2%;
+    }
+
+    .menu-preview .preview{
+        width: 70%;
+    }
+}
+
+@media (max-width: 516px) {
+    .shop-content {
+        grid-template-columns: repeat(2, 1fr); /* 2 pasang grid */
+    }
+
+    .product-content {
+        grid-template-columns: repeat(2, 1fr); /* 2 pasang grid */
+    }
+
+    .add-cart{
+        padding: 8px;
+    }
+    .popup {
+        width: 380px;
+        height: 250px;
+        padding: 0 40px 40px;
+    }
+
+    .popup1 {
+        width: 400px;
+        height: 350px;
+        padding: 0 40px 40px;
+    }
+
+    .slider .buttons{
+        height: 55%;
+    }
+
+    .section-title{
+        margin-top: -30%;
+    }
+
+    .menu-preview .preview h3{
+        font-size: 1.4rem;
+    }
+
+    .menu-preview .preview{
+        margin: 1.5rem;
+    }
+}
+
+@media (max-width: 400px){
+    .section-title{
+        margin-top: -55%;
+    }
+
+    .judul a{
+        font-size: 1.6rem;
+    }
+    .cart{
+        width: 320px;
+    }
+
+    .popup {
+        width: 300px;
+        height: 40%;
+        padding: 0 40px 40px;
+    }
+
+    .popup1 {
+        width: 300px;
+        height: 55%;
+        padding: 0 40px 40px;
+    }
+
+    .navigation a {
+        width: 10px;
+        height: 10px;
+    }
+
+    .navigation{
+        margin-top: -45px;
+    }
+
+    .images img {
+        width: 100%;
+        height: 160px;
+    }
+
+    .navbar {
+        width: 320px;
+    }
+
+    .navbar.active {
+        display: block;
+        top: 60px;
+        right: 0;
+        transition: 0.6s ease-in-out;
+    }
+
+    .slider .buttons{
+        height: 42%;
+    }
+    
+    .slider .buttons button{
+        width: 35px;
+        height: 35px;
+        font-weight: 500;
+        font-size: 1.2rem;
+    }
+
+    .menu-preview .preview{
+        width: 80%;
+    }
+}
+
+@media (max-width: 360px){
+    .shop{
+        margin-top: 1rem !important;
+    }
+    .cart{
+        width: 280px;
+    }
+
+    .slider .buttons{
+        height: 9.4rem;
+    }
+
+    .section-title{
+        margin-top: -70%;
+    }
+
+    .navbar {
+        width: 280px;
+    }
+
+    .menu-preview .preview{
+        width: 90%;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .wrapper{
+        width: 90%;
+    }
+
+    .navigation a {
+        width: 15px;
+        height: 15px;
+    }
+}
