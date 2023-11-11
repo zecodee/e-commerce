@@ -96,7 +96,7 @@ function buyButtonClicked() {
             while (cartContent.hasChildNodes()) {
                 cartContent.removeChild(cartContent.firstChild);
             }
-
+            openPopup.classList.remove("open-popup");
             updatetotal();
         }, 3000); // Penundaan 3000 milidetik (3 detik)
     }
