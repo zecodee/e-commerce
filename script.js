@@ -282,12 +282,12 @@ menuIcon.addEventListener('click', () => {
 
 // Function to get items to local storage
 function getCartItems() {
-    return JSON.parse(localStorage.getItem('save-cart')) || [];
+    return JSON.parse(localStorage.getItem('')) || [];
 }
 
 // Function to save items to local storage
 function saveCartItems(items) {
-    localStorage.setItem('save-cart', JSON.stringify(items));
+    localStorage.setItem('', JSON.stringify(items));
 }
 
 function saveCartToLocalStorage() {
