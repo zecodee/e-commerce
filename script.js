@@ -114,13 +114,13 @@ function removeCartItem(event) {
     let buttonClicked = event.target;
     let cartItem = buttonClicked.parentElement;
 
-    // Remove the item from the cart
+    // Remove item from the cart
     cartItem.remove();
 
-    // Update the total in the cart
+    // Update total in the cart
     updatetotal();
 
-    // Save the updated cart to local storage
+    // Save updated cart to local storage
     saveCartToLocalStorage();
 }
 
@@ -131,6 +131,7 @@ function quantityChanged(event) {
         input.value = 1;
     }
     updatetotal();
+    saveCartToLocalStorage();
 }
 
 // add to cart
@@ -141,6 +142,16 @@ function addCartClicked(event) {
     let price = shopProducts.querySelector(".price").innerText;
     let productImg = shopProducts.querySelector(".product-img").src;
 
+    // check item kalau sudah
+    let cartItemsNames = document.getElementsByClassName("cart-product-title");
+    for (let i = 0; i < cartItemsNames.length; i++) {
+        if (cartItemsNames[i].innerText == title) {
+            let openPopup3 = document.getElementById("popup3");
+            openPopup3.classList.add("open-popup3");
+            return;
+        }
+    }
+
     // nambah product to the cart
     addProductToCart(title, price, productImg);
 
@@ -149,19 +160,16 @@ function addCartClicked(event) {
 
     // ngesave updated cart to local storage
     saveCartToLocalStorage();
+
+    // popup message
+    let openPopup2 = document.getElementById("popup2");
+        openPopup2.classList.add("open-popup2");
 }
 
 function addProductToCart(title, price, productImg) {
     let cartShopBox = document.createElement("div");
     cartShopBox.classList.add("cart-box");
     let cartItems = document.getElementsByClassName("cart-content")[0];
-    let cartItemsNames = cartItems.getElementsByClassName("cart-product-title");
-    for (let i = 0; i < cartItemsNames.length; i++) {
-        if (cartItemsNames[i].innerText == title) {
-            alert("You add this item");
-            return;
-        }
-    }
 
     let cartBoxContent = `
         <img src="${productImg}" alt="#" class="cart-img">
@@ -183,6 +191,7 @@ function addProductToCart(title, price, productImg) {
 function updatetotal() {
     let cartBoxes = document.getElementsByClassName('cart-box');
     let total = 0;
+
     for (let i = 0; i < cartBoxes.length; i++) {
         let cartBox = cartBoxes[i];
         let priceElement = cartBox.getElementsByClassName('cart-price')[0];
@@ -191,6 +200,7 @@ function updatetotal() {
         let quantity = parseInt(quantityElement.value);
         total += price * quantity;
     }
+
     // Format total sebagai mata uang Indonesia dengan tiga angka sebelum titik
     total = total.toLocaleString("id-ID");
     document.getElementsByClassName("total-price")[0].innerText = `Rp. ${total}`;
@@ -198,6 +208,8 @@ function updatetotal() {
 
 function closePopup(){
     popup1.classList.remove("open-popup1");
+    popup2.classList.remove("open-popup2");
+    popup3.classList.remove("open-popup3");
 }
 
 // preview script
@@ -282,12 +294,12 @@ menuIcon.addEventListener('click', () => {
 
 // Function to get items to local storage
 function getCartItems() {
-    return JSON.parse(localStorage.getItem('')) || [];
+    return JSON.parse(localStorage.getItem('cartItems')) || [];
 }
 
 // Function to save items to local storage
 function saveCartItems(items) {
-    localStorage.setItem('', JSON.stringify(items));
+    localStorage.setItem('cartItems', JSON.stringify(items));
 }
 
 function saveCartToLocalStorage() {
@@ -316,10 +328,25 @@ function saveCartToLocalStorage() {
 function loadCartFromLocalStorage() {
     let cartItems = getCartItems();
 
-    //  menambah setiap item dari penyimpanan lokal ke keranjang
+    // menambah setiap item dari penyimpanan lokal ke keranjang
     for (let i = 0; i < cartItems.length; i++) {
         let cartItem = cartItems[i];
         addProductToCart(cartItem.title, cartItem.price, cartItem.productImg);
+        
+        // Update the quantity for the added product
+        let cartBoxes = document.getElementsByClassName('cart-box');
+        for (let j = 0; j < cartBoxes.length; j++) {
+            let cartBox = cartBoxes[j];
+            let titleElement = cartBox.querySelector(".cart-product-title");
+            let quantityElement = cartBox.querySelector(".cart-quantity");
+            
+            if (titleElement.innerText === cartItem.title) {
+                // Set the saved quantity for the corresponding product
+                quantityElement.value = cartItem.quantity;
+                break;
+            }
+        }
+
         updatetotal();
     }
 }
