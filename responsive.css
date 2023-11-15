@@ -18,6 +18,14 @@
         height: 40%;
     }
 
+    .popup2{
+        height: 40%;
+    }
+
+    .popup3{
+        height: 40%;
+    }
+
     .home {
         margin-top: 120px;
     }
@@ -148,6 +156,18 @@
         padding: 0 40px 40px;
     }
 
+    .popup2 {
+        width: 400px;
+        height: 350px;
+        padding: 0 40px 40px;
+    }
+    
+    .popup3 {
+        width: 400px;
+        height: 350px;
+        padding: 0 40px 40px;
+    }
+
     .slider .buttons{
         height: 55%;
     }
@@ -184,6 +204,18 @@
     }
 
     .popup1 {
+        width: 300px;
+        height: 55%;
+        padding: 0 40px 40px;
+    }
+
+    .popup2 {
+        width: 300px;
+        height: 55%;
+        padding: 0 40px 40px;
+    }
+
+    .popup3 {
         width: 300px;
         height: 55%;
         padding: 0 40px 40px;
